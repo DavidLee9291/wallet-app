@@ -1,7 +1,9 @@
 import { More } from "@mui/icons-material";
 import { Button, Stack } from "@mui/material";
 import { Box, height } from "@mui/system";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Setting from "./setting";
 import Chat from "./tab/chat";
 import Gift from "./tab/gift";
 import Member from "./tab/member";
@@ -13,7 +15,7 @@ export default function Kakao() {
 
     const [content, setContent] = useState<any>('내용입니다.')
     const [title, setTitle] = useState<any>('')
-
+    const router = useRouter()
 
     function onClickMember() {
         setContent(<Member />)
@@ -35,12 +37,17 @@ export default function Kakao() {
         setTitle('회원')
     }
 
+    function onClickSetting() {
+        router.push('/kakao/setting')
+    }
+
     return <>
    <Stack sx={{ height: '100vh'}}>
         <Stack direction="row" alignItems="center" sx={{ background: 'Blue', height: 50 , px: 2}}>
         <Box sx={{ flexGrow: 1, fontSize: 20}}>
              FACEBOOK{title}
             </Box>
+            <Button sx={{color: 'white'}} onClick={onClickSetting}>설정</Button>
         </Stack>
         
         <Stack direction="row" justifyContent="space-around" sx={{ background: 'Gray'}}>
