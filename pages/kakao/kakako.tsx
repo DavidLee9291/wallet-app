@@ -12,28 +12,34 @@ export default function Kakao() {
     // const = 상수
 
     const [content, setContent] = useState<any>('내용입니다.')
+    const [title, setTitle] = useState<any>('')
+
 
     function onClickMember() {
         setContent(<Member />)
+        setTitle('회원')
     }
 
     function onClickChat() {
         setContent(<Chat />)
+        setTitle('채팅창')
     }
 
     function onClickGift() {
         setContent(<Gift />)
+        setTitle('선물하기')
     }
 
     function onClickMore() {
         setContent(<More />)
+        setTitle('회원')
     }
 
     return <>
    <Stack sx={{ height: '100vh'}}>
         <Stack direction="row" alignItems="center" sx={{ background: 'Blue', height: 50 , px: 2}}>
         <Box sx={{ flexGrow: 1, fontSize: 20}}>
-           FACEBOOK : {content}
+             FACEBOOK{title}
             </Box>
         </Stack>
         
